@@ -12,6 +12,13 @@ spec:
     disableAutoScaling: true
     max: 1
     min: 1
+  accessPolicy:
+    outbound:
+      rules:
+        # https://medlemskap-oppslag.dev.intern.nav.no
+        - application: medlemskap-oppslag
+          namespace: medlemskap
+
   resources:
     limits:
       cpu: 1000m
