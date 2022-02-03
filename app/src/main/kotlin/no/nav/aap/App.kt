@@ -15,8 +15,8 @@ fun main() {
 }
 
 fun Application.server() {
-
     val prometheus = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
+
     install(MicrometerMetrics) { registry = prometheus }
 
     routing {

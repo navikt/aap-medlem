@@ -12,8 +12,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-
     // Apply the application plugin to add support for building a CLI application in Java.
     application
 }
@@ -42,6 +42,9 @@ dependencies {
     implementation("no.nav.security:token-client-core:1.3.10")
 
     implementation("com.sksamuel.hoplite:hoplite-yaml:1.4.16")
+
+    // serialiserig til/fra json på kafka
+    implementation("io.ktor:ktor-serialization:1.6.7")
 
     implementation("ch.qos.logback:logback-classic:1.2.10")
     implementation("io.ktor:ktor-jackson:1.6.7")
