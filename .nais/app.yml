@@ -1,24 +1,17 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: medlemskap
+  name: medlem
   namespace: aap
   labels:
     team: aap
 spec:
-  image: {{ image }}
+  image: {{image}}
   replicas:
     cpuThresholdPercentage: 90
     disableAutoScaling: true
     max: 1
     min: 1
-  accessPolicy:
-    outbound:
-      rules:
-        # https://medlemskap-oppslag.dev.intern.nav.no
-        - application: medlemskap-oppslag
-          namespace: medlemskap
-
   resources:
     limits:
       cpu: 1000m
@@ -26,6 +19,8 @@ spec:
     requests:
       cpu: 500m
       memory: 512Mi
+  kafka:
+    pool: {{kafka-pool}}
   liveness:
     path: /actuator/healthy
     initialDelay: 3
