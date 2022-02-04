@@ -13,11 +13,12 @@ data class LovMe(
 data class MedlemRequest(
     val mottattDato: LocalDate = LocalDate.now(),
     val ytelse: String = "AAP",
-    val oppholdUtenforNorgeSiste6år: Boolean = false,
+    val arbeidetUtenforNorgeSiste6År: Boolean = false,
 )
 
 enum class Svar { JA, NEI, UAVKLART }
 
 data class MedlemResponse(
-    val erMedlem: Svar
+    val erMedlem: Svar,
+    val begrunnelse: String?,
 )
