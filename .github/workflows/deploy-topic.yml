@@ -2,7 +2,11 @@ name: Deploy Topic
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - '.nais/'
+      - '.github/'
 
 jobs:
   deploy-topic:
@@ -19,13 +23,3 @@ jobs:
           RESOURCE: .nais/topic-medlemskap.yml
           VARS: .nais/dev.yml
           PRINT_PAYLOAD: true
-
-#      - name: Deploy ${{ github.event.inputs.topic }} to prod
-#        uses: nais/deploy/actions/deploy@v1
-#        if: ${{ github.ref == 'refs/heads/main' && github.event.inputs.deploy-prod == 'true'}}
-#        env:
-#          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-#          CLUSTER: dev-gcp
-#          RESOURCE: kafka/${{ github.event.inputs.topic }}
-#          VARS: .nais/prod.yml
-#          PRINT_PAYLOAD: true
