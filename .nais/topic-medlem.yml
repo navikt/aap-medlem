@@ -1,7 +1,7 @@
 apiVersion: kafka.nais.io/v1
 kind: Topic
 metadata:
-  name: medlem-request.v1
+  name: medlem.v1
   namespace: aap
   labels:
     team: aap

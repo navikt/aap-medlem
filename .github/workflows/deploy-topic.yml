@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
 
-      - name: Deploy aap.medlem-request.v1 to dev
+      - name: Deploy aap.medlem.v1 to dev
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: .nais/topic-medlemskap.yml
+          RESOURCE: .nais/topic-medlem.yml
           VARS: .nais/dev.yml
           PRINT_PAYLOAD: true
