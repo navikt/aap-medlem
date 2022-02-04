@@ -28,7 +28,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: .nais/${{ github.event.inputs.topic }}
-          VARS: .nais/dev.yaml
+          VARS: .nais/dev.yml
           PRINT_PAYLOAD: true
 
       - name: Deploy ${{ github.event.inputs.topic }} to prod
@@ -38,5 +38,5 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: kafka/${{ github.event.inputs.topic }}
-          VARS: .nais/prod.yaml
+          VARS: .nais/prod.yml
           PRINT_PAYLOAD: true
