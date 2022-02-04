@@ -1,19 +1,8 @@
 name: Deploy Topic
 
 on:
-  workflow_dispatch:
-    inputs:
-      topic:
-        type: choice
-        description: Topic manifest
-        required: true
-        options:
-          - 'topic-medlemskap.yml'
-      deploy-prod:
-        type: boolean
-        description: Include deploy to prod
-        required: false
-        default: 'false'
+  push:
+    branches: [ main ]
 
 jobs:
   deploy-topic:
