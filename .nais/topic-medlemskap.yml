@@ -10,4 +10,7 @@ spec:
   acl:
     - team: medlemskap
       application: medlemskap-oppslag
+      access: read
+    - team: aap
+      application: medlem
       access: write
