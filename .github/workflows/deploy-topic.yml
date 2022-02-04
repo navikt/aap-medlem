@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - '.nais/'
-      - '.github/'
+      - '.nais/**'
+      - '.github/**'
 
 jobs:
   deploy-topic:
