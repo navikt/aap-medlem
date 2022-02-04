@@ -9,8 +9,8 @@ spec:
   pool: {{kafka-pool}}
   acl:
     - team: medlemskap
-      application: medlemskap-oppslag
-      access: read
+      application: medlemskap-aap-listener
+      access: readwrite
     - team: aap
       application: medlem
-      access: write
+      access: readwrite
