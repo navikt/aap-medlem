@@ -20,5 +20,5 @@ enum class Svar { JA, NEI, UAVKLART }
 
 data class MedlemResponse(
     val erMedlem: Svar,
-    val begrunnelse: String?,
+    val årsak: String?,
 )
