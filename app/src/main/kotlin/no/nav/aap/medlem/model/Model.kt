@@ -11,7 +11,7 @@ data class LovMe(
 )
 
 data class MedlemRequest(
-    val førsteDagForYtelse: LocalDate = LocalDate.now(),
+    val mottattDato: LocalDate = LocalDate.now(),
     val ytelse: String = "AAP",
     val oppholdUtenforNorgeSiste6år: Boolean = false,
 )
