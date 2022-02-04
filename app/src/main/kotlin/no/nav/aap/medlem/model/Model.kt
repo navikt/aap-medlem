@@ -4,8 +4,8 @@ import java.time.LocalDate
 import java.util.*
 
 data class LovMe(
-    val id: UUID,
     val folkeregisteridentifikator: String,
+    val id: UUID = UUID.randomUUID(),
     val request: MedlemRequest?,
     val response: MedlemResponse?,
 )
