@@ -1,0 +1,42 @@
+name: Deploy Topic
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        type: choice
+        description: Topic manifest
+        required: true
+        options:
+          - 'topic-medlemskap.yml'
+      deploy-prod:
+        type: boolean
+        description: Include deploy to prod
+        required: false
+        default: 'false'
+
+jobs:
+  deploy-topic:
+    name: Deploy topic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+
+      - name: Deploy ${{ github.event.inputs.topic }} to dev
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/${{ github.event.inputs.topic }}
+          VARS: .nais/dev.yaml
+          PRINT_PAYLOAD: true
+
+      - name: Deploy ${{ github.event.inputs.topic }} to prod
+        uses: nais/deploy/actions/deploy@v1
+        if: ${{ github.ref == 'refs/heads/main' && github.event.inputs.deploy-prod == 'true'}}
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: kafka/${{ github.event.inputs.topic }}
+          VARS: .nais/prod.yaml
+          PRINT_PAYLOAD: true
